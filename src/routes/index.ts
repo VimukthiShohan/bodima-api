@@ -4,6 +4,7 @@ import * as jwtConfig from '../config/middleware/jwtAuth'
 import * as swaggerUi from 'swagger-ui-express'
 import AuthRouter from './AuthRouter'
 import UserRouter from './UserRouter'
+import HostelRouter from './HostelRouter'
 let swaggerDoc: Object
 
 try {
@@ -37,6 +38,13 @@ export function init(app: express.Application): void {
      */
     app.use('/auth', AuthRouter)
 
+
+    /**
+     * @description alskdflaskdfj
+     * @constructs
+     */
+    app.use('/hostel', HostelRouter)
+
     /**
      * @description
      *  If swagger.json file exists in root folder, shows swagger api description
@@ -55,6 +63,8 @@ export function init(app: express.Application): void {
             )
         })
     }
+
+    app.all('/', (req, res) => res.send('Wellcome to Bodima API'))
 
     /**
      * @description No results returned mean the object is not found

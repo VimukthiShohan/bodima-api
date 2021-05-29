@@ -1,6 +1,6 @@
 {
-    "name": "typescript-express-rest-api",
-    "version": "2.0.10",
+    "name": "bodima-api",
+    "version": "1",
     "main": "./build/index.js",
     "keywords": [
         "yeoman-generator",
@@ -13,13 +13,9 @@
         "builder",
         "generator"
     ],
-    "description": "This generator will help you to build your own Node.js Express Mongodb API using TypeScript.",
-    "author": "Checha Valerii <chechavalera@gmail.com>",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/ChechaValerii/node-typescript-mongodb/issues"
-    },
-    "homepage": "https://github.com/ChechaValerii/node-typescript-mongodb#readme",
+    "description": "API for bodima application",
+    "author": "Vimukthi Jayawardana <vimukthi.shohan@gmail.com>",
+    "license": "",
     "scripts": {
         "build": "tsc --skipLibCheck",
         "start:prod": "tsc --skipLibCheck && node ./build/config/server/index.js",
