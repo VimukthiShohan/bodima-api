@@ -40,7 +40,7 @@ export function init(app: express.Application): void {
 
 
     /**
-     * @description alskdflaskdfj
+     * @description 
      * @constructs
      */
     app.use('/hostel', HostelRouter)
