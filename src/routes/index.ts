@@ -64,7 +64,7 @@ export function init(app: express.Application): void {
         })
     }
 
-    app.all('/', (req, res) => res.send('Wellcome to Bodima API'))
+    app.all('/', (req, res) => res.send('Welcome to Bodima API'))
 
     /**
      * @description No results returned mean the object is not found

@@ -1,7 +1,6 @@
 {
-  "openapi": "3.0.0",
   "info": {
-    "title": "Node-Typescript API",
+    "title": "BODIMA API",
     "version": "1.0.0",
     "description": "A sample API"
   },
