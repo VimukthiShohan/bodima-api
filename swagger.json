@@ -1,8 +1,9 @@
 {
+  "openapi": "3.0.0",
   "info": {
-    "title": "BODIMA API",
-    "version": "1.0.0",
-    "description": "A sample API"
+    "title": "bodima-api",
+    "version": "1",
+    "description": "API for bodima application"
   },
   "servers": [
     {
@@ -282,17 +283,26 @@
     "schemas": {
       "UserSchema": {
         "required": [
+          "firstName",
+          "lastName",
           "email",
-          "name"
+          "mobileNumber",
+          "password"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "name": {
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
             "type": "string"
           },
           "email": {
+            "type": "string"
+          },
+          "mobileNumber": {
             "type": "string"
           },
           "password": {

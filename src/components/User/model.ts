@@ -10,21 +10,23 @@ import { NextFunction } from 'express'
  * @extends {Document}
  */
 export interface IUserModel extends Document {
+
+    firstName: string
+
+    lastName: string
+
     email: string
+
+    mobileNumber: string
+
     password: string
+
     passwordResetToken: string
+
     passwordResetExpires: Date
 
-    facebook: string
     tokens: AuthToken[]
 
-    profile: {
-        name: string
-        gender: string
-        location: string
-        website: string
-        picture: string
-    }
     comparePassword: (password: string) => Promise<boolean>
     gravatar: (size: number) => string
 }
@@ -40,16 +42,31 @@ export type AuthToken = {
  *  schemas:
  *    UserSchema:
  *      required:
+ *        - firstName
+ *        - lastName
  *        - email
- *        - name
+ *        - mobileNumber
+ *        - password
  *      properties:
- *        id: type: string
- *        name: type: string
- *        email: type: string
- *        password: type: string
- *        passwordResetToken: type: string
- *        passwordResetExpires: type: string format: date
- *        tokens: type: array
+ *        id: 
+ *          type: string
+ *        firstName: 
+ *          type: string
+ *        lastName: 
+ *          type: string
+ *        email: 
+ *          type: string
+ *        mobileNumber: 
+ *          type: string
+ *        password: 
+ *          type: string
+ *        passwordResetToken: 
+ *          type: string
+ *        passwordResetExpires: 
+ *          type: string 
+ *          format: date
+ *        tokens: 
+ *          type: array
  *    Users:
  *      type: array
  *      items:
@@ -57,21 +74,19 @@ export type AuthToken = {
  */
 const UserSchema: Schema = new Schema(
     {
+        firstName: String,
+        lastName: String,
         email: {
             type: String,
             unique: true,
             trim: true,
         },
+        mobileNumber: String,
         password: String,
         passwordResetToken: String,
         passwordResetExpires: Date,
         tokens: Array,
-    },
-    {
-        collection: 'usermodel',
-        versionKey: false,
-    }
-).pre('save', async function (next: NextFunction): Promise<void> {
+    }).pre('save', async function (next: NextFunction): Promise<void> {
     const user: any = this // tslint:disable-line
 
     if (!user.isModified('password')) {
@@ -118,4 +133,4 @@ UserSchema.methods.gravatar = function (size: number): string {
     return `https://gravatar.com/avatar/${md5}?s=${size}&d=retro`
 }
 
-export default connections.db.model<IUserModel>('UserModel', UserSchema)
+export default connections.db.model<IUserModel>('User', UserSchema)

@@ -1,6 +1,6 @@
 import * as Joi from 'joi'
 import AuthValidation from './validation'
-import UserModel, { IUserModel } from '../User/model'
+import User, { IUserModel } from '../User/model'
 import { IAuthService } from './interface'
 
 /**
@@ -21,12 +21,15 @@ const AuthService: IAuthService = {
         throw new Error(validate.error.message)
       }
 
-      const user: IUserModel = new UserModel({
-        email: body.email,
-        password: body.password,
+      const user: IUserModel = new User({
+        firstName: validate.value.firstName,
+        lastName: validate.value.lastName,
+        email: validate.value.email,
+        mobileNumber: validate.value.mobileNumber,
+        password: validate.value.password
       })
-
-      const query: IUserModel = await UserModel.findOne({
+      
+      const query: IUserModel = await User.findOne({
         email: body.email,
       })
 
@@ -54,7 +57,7 @@ const AuthService: IAuthService = {
         throw new Error(validate.error.message)
       }
 
-      const user: IUserModel = await UserModel.findOne({
+      const user: IUserModel = await User.findOne({
         email: body.email,
       })
 
