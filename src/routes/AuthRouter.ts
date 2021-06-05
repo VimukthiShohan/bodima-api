@@ -22,6 +22,8 @@ const router: Router = Router()
  *          schema:
  *            $ref: '#/components/schemas/UserSchema'
  *          example:
+ *            firstName: sandun
+ *            lastname: rathsara
  *            email: test.user@mail.com
  *            password: test_test
  *    responses:

@@ -43,7 +43,7 @@ export function init(app: express.Application): void {
      * @description 
      * @constructs
      */
-    app.use('/hostel', HostelRouter)
+    app.use('/v1/hostel', HostelRouter)
 
     /**
      * @description
