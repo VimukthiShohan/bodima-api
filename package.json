@@ -19,7 +19,7 @@
     "scripts": {
         "build": "tsc --skipLibCheck",
         "start:prod": "tsc --skipLibCheck && node ./build/config/server/index.js",
-        "start": "nodemon ./src/config/server/index.js",
+        "start": "nodemon ./src/config/server/index.ts",
         "ts:watch": "tsc -w",
         "swagger": "swagger-jsdoc -d swaggerDef.js -o swagger.json",
         "test": "NODE_ENV=test mocha -r ts-node/register test/index.js --exit"
